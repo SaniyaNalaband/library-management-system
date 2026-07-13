@@ -14,8 +14,152 @@ header {
     background-color: #1a1a2e;
     color: #fff;
     padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+header h1 {
+    font-size: 1.4rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.2rem;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 main {
     padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Flash messages */
+.flash-messages {
+    margin-bottom: 1.5rem;
+}
+
+.flash {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Forms */
+.form-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.form-card label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-card button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-card button:hover {
+    background-color: #333;
+}
+
+/* Search form */
+.search-form {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 0.6rem 1.2rem;
+    background-color: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Book table */
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.book-table th, .book-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.book-table th {
+    background-color: #f0f2f5;
+}
+
+.btn-borrow, .btn-return {
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-borrow {
+    background-color: #2e7d32;
+}
+
+.btn-return {
+    background-color: #c62828;
+}
+
+.unavailable {
+    color: #999;
+    font-style: italic;
 }
