@@ -2,5 +2,60 @@
 {% block title %}Home - Smart Library{% endblock %}
 
 {% block content %}
-<p>Welcome. Log in or sign up to browse the book catalog.</p>
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-copy">
+            <p class="eyebrow">Campus library, digitized</p>
+            <h2 class="hero-headline">Borrow smarter.<br>Return on time.</h2>
+            <p class="hero-sub">
+                Search the full catalog, track your due dates, and settle fines —
+                all from one dashboard built for students.
+            </p>
+            <div class="hero-cta">
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('books.list_books') }}" class="btn-primary">Browse the catalog</a>
+                {% else %}
+                    <a href="{{ url_for('auth.signup') }}" class="btn-primary">Get your library card</a>
+                    <a href="{{ url_for('auth.login') }}" class="btn-ghost">Sign in</a>
+                {% endif %}
+            </div>
+            <ul class="hero-tags">
+                <li>₹5/day late fee, calculated automatically</li>
+                <li>Real-time availability</li>
+                <li>Search by title, author, or category</li>
+            </ul>
+        </div>
+
+        <div class="hero-shelf" aria-hidden="true">
+            <div class="shelf-books">
+                <div class="spine spine-1"><span>Clean Code</span></div>
+                <div class="spine spine-2"><span>Data Structures</span></div>
+                <div class="spine spine-3"><span>World History</span></div>
+                <div class="spine spine-4"><span>Design Patterns</span></div>
+                <div class="spine spine-5"><span>Organic Chemistry</span></div>
+                <div class="spine spine-6"><span>Poetry Anthology</span></div>
+                <div class="spine spine-7"><span>Algorithms</span></div>
+            </div>
+            <div class="shelf-plank"></div>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <div class="step">
+        <span class="step-number">01</span>
+        <h3>Borrow</h3>
+        <p>Pick a book from the catalog. One tap reserves your copy.</p>
+    </div>
+    <div class="step">
+        <span class="step-number">02</span>
+        <h3>Read</h3>
+        <p>You get 14 days. Your due date is tracked automatically.</p>
+    </div>
+    <div class="step">
+        <span class="step-number">03</span>
+        <h3>Return</h3>
+        <p>Return it on time, or a fine is added — no manual bookkeeping.</p>
+    </div>
+</section>
 {% endblock %}
