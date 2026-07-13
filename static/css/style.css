@@ -467,6 +467,111 @@ main {
     font-size: 0.9rem;
 }
 
+/* ===== Auth split screen (login/signup) ===== */
+.auth-split {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    min-height: calc(100vh - 78px);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.auth-brand {
+    flex: 1 1 380px;
+    background: radial-gradient(circle at 15% 15%, rgba(232, 163, 61, 0.3), transparent 45%),
+                linear-gradient(180deg, var(--ink-navy) 0%, var(--ink-navy-deep) 100%);
+    color: var(--cream);
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-brand-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 2.8rem);
+    line-height: 1.15;
+    margin: 0.6rem 0 1rem;
+}
+
+.auth-brand-sub {
+    color: rgba(244, 238, 224, 0.78);
+    max-width: 38ch;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.auth-mini-shelf {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    margin-bottom: 2.5rem;
+}
+
+.auth-mini-shelf .spine {
+    box-shadow: inset -3px 0 6px rgba(0,0,0,0.15);
+}
+
+.auth-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(244, 238, 224, 0.65);
+    max-width: 32ch;
+    border-left: 2px solid var(--lamp-amber);
+    padding-left: 1rem;
+}
+
+.auth-form-panel {
+    flex: 1 1 380px;
+    background-color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+
+.form-card--auth {
+    margin: 0;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 10px 40px rgba(18, 33, 61, 0.1);
+    border: 1px solid var(--border-soft);
+}
+
+.form-card--auth h2 {
+    font-size: 1.5rem;
+}
+
+.form-card-sub {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+@media (max-width: 800px) {
+    .auth-split {
+        min-height: auto;
+    }
+
+    .auth-brand {
+        padding: 3rem 2rem;
+    }
+
+    .auth-mini-shelf {
+        justify-content: center;
+    }
+
+    .auth-quote {
+        margin: 0 auto;
+    }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 800px) {
     .hero-inner {

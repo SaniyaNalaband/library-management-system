@@ -1,18 +1,38 @@
 {% extends 'base.html' %}
-{% block title %}Login - Smart Library{% endblock %}
+{% block title %}Log In - Smart Library{% endblock %}
 
 {% block content %}
-<div class="form-card">
-    <h2>Log In</h2>
-    <form method="POST" action="{{ url_for('auth.login') }}">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+<section class="auth-split">
+    <div class="auth-brand">
+        <p class="eyebrow">Smart Library</p>
+        <h2 class="auth-brand-headline">Welcome back,<br>reader.</h2>
+        <p class="auth-brand-sub">Pick up right where you left off — your holds, due dates, and fines are all here.</p>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <div class="auth-mini-shelf" aria-hidden="true">
+            <div class="spine spine-1" style="height:96px;"><span>Clean Code</span></div>
+            <div class="spine spine-3" style="height:76px;"><span>World History</span></div>
+            <div class="spine spine-2" style="height:110px;"><span>Data Structures</span></div>
+            <div class="spine spine-6" style="height:88px;"><span>Poetry</span></div>
+        </div>
 
-        <button type="submit">Log In</button>
-    </form>
-    <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up</a></p>
-</div>
+        <p class="auth-quote">"A room without books is like a body without a soul."</p>
+    </div>
+
+    <div class="auth-form-panel">
+        <div class="form-card form-card--auth">
+            <h2>Log In</h2>
+            <p class="form-card-sub">Enter your details to access your account.</p>
+            <form method="POST" action="{{ url_for('auth.login') }}">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+                <button type="submit">Log In</button>
+            </form>
+            <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up</a></p>
+        </div>
+    </div>
+</section>
 {% endblock %}
