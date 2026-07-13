@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up - Smart Library{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Create an Account</h2>
+    <form method="POST" action="{{ url_for('auth.signup') }}">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('auth.login') }}">Log in</a></p>
+</div>
+{% endblock %}
