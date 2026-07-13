@@ -8,10 +8,10 @@ from flask import Flask, render_template
 from extensions import db, login_manager
 
 # Import models so SQLAlchemy knows about them before create_all() runs
-from models.user import User
-from models.book import Book
-from models.transaction import Transaction
-from models.fine import Fine
+from models.files.user import User
+from models.files.book import Book
+from models.files.transaction import Transaction
+from models.files.fine import Fine
 
 from routes.auth import auth_bp
 from routes.books import books_bp
