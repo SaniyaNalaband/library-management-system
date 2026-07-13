@@ -5,7 +5,7 @@ Book catalog routes: list all books, search/filter by title, author, or category
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
 
-from models.book import Book
+from models.files.book import Book
 from models.transaction import Transaction
 
 books_bp = Blueprint('books', __name__)

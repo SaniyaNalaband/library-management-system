@@ -9,7 +9,7 @@ from flask_login import login_required, current_user
 from datetime import datetime
 
 from extensions import db
-from models.book import Book
+from models.files.book import Book
 from models.transaction import Transaction
 from utils.fine_calculator import apply_fine_if_overdue
 
