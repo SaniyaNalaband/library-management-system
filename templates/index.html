@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Smart Library Management System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <header>
-        <h1>📚 Smart Library Management System</h1>
-    </header>
-    <main>
-        <p>Project scaffold is live. Login, book catalog, and dashboard coming next.</p>
-    </main>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Home - Smart Library{% endblock %}
+
+{% block content %}
+<p>Welcome. Log in or sign up to browse the book catalog.</p>
+{% endblock %}
