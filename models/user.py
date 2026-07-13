@@ -5,10 +5,11 @@ Passwords are hashed, never stored in plain text.
 
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 from extensions import db
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -29,3 +30,4 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.email} ({self.role})>'
+
