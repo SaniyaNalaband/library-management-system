@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Manage Books - Admin{% endblock %}
+
+{% block content %}
+<div class="admin-header">
+    <h2>Manage Books</h2>
+    <a href="{{ url_for('admin.add_book') }}" class="btn-primary">+ Add Book</a>
+</div>
+
+{% if books %}
+<table class="book-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Copies</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.available_copies }} / {{ book.total_copies }}</td>
+            <td class="admin-actions">
+                <a href="{{ url_for('admin.edit_book', book_id=book.id) }}" class="btn-edit">Edit</a>
+                <form method="POST" action="{{ url_for('admin.delete_book', book_id=book.id) }}"
+                      onsubmit="return confirm('Delete \'{{ book.title }}\'? This cannot be undone.');">
+                    <button type="submit" class="btn-delete">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No books in the catalog yet. <a href="{{ url_for('admin.add_book') }}">Add the first one</a>.</p>
+{% endif %}
+{% endblock %}

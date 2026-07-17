@@ -9,7 +9,7 @@ Safe to re-run: it skips any book whose title already exists.
 
 from app import create_app
 from extensions import db
-from models.files.book import Book
+from models.book import Book
 
 BOOKS = [
     # (title, author, category, total_copies)

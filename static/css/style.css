@@ -734,6 +734,163 @@ main {
     color: var(--myst-gold-warm);
 }
 
+/* ===== Admin dashboard ===== */
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.4rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--ink-navy);
+}
+
+.stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.dashboard-panel h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-panel--wide {
+    grid-column: 1 / -1;
+}
+
+.dashboard-empty {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.dashboard-muted {
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.overdue-days {
+    color: var(--spine-red);
+    font-weight: 600;
+}
+
+.category-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.category-bar-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 30px;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.category-bar-label {
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.category-bar-track {
+    background: var(--border-soft);
+    border-radius: 4px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.category-bar-fill {
+    background: var(--library-green);
+    height: 100%;
+    border-radius: 4px;
+}
+
+.category-bar-count {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: right;
+}
+
+@media (max-width: 800px) {
+    .stat-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Admin panel ===== */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-edit {
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    background-color: var(--library-green);
+    color: #fff;
+}
+
+.btn-delete {
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    background-color: var(--spine-red);
+    color: #fff;
+}
+
 /* ===== Forms (login / signup) ===== */
 .form-card {
     background: var(--paper);

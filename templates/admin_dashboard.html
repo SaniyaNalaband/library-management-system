@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - Admin{% endblock %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<div class="stat-cards">
+    <div class="stat-card">
+        <span class="stat-number">{{ total_books }}</span>
+        <span class="stat-label">Total Books</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-number">{{ total_users }}</span>
+        <span class="stat-label">Registered Students</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-number">{{ active_borrows }}</span>
+        <span class="stat-label">Active Borrows</span>
+    </div>
+    <div class="stat-card">
+        <span class="stat-number">₹{{ '%.2f' % unpaid_fines_total }}</span>
+        <span class="stat-label">Unpaid Fines</span>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <div class="dashboard-panel">
+        <h3>Most Borrowed Books</h3>
+        {% if most_borrowed %}
+        <table class="book-table">
+            <thead>
+                <tr><th>Title</th><th>Times Borrowed</th></tr>
+            </thead>
+            <tbody>
+                {% for title, count in most_borrowed %}
+                <tr>
+                    <td>{{ title }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="dashboard-empty">No borrow activity yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="dashboard-panel">
+        <h3>Books by Category</h3>
+        {% if category_counts %}
+        <div class="category-bars">
+            {% set max_count = category_counts[0][1] %}
+            {% for category, count in category_counts %}
+            <div class="category-bar-row">
+                <span class="category-bar-label">{{ category }}</span>
+                <div class="category-bar-track">
+                    <div class="category-bar-fill" style="width: {{ (count / max_count * 100) | round(1) }}%;"></div>
+                </div>
+                <span class="category-bar-count">{{ count }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="dashboard-empty">No books in the catalog yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="dashboard-panel dashboard-panel--wide">
+    <h3>Currently Overdue ({{ overdue|length }})</h3>
+    {% if overdue %}
+    <table class="book-table">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Borrower</th>
+                <th>Due Date</th>
+                <th>Days Overdue</th>
+                <th>Estimated Fine</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for txn, title, name, email in overdue %}
+            <tr>
+                <td>{{ title }}</td>
+                <td>{{ name }} <span class="dashboard-muted">({{ email }})</span></td>
+                <td>{{ txn.due_date.strftime('%d %b %Y') }}</td>
+                <td class="overdue-days">{{ txn.days_overdue }}</td>
+                <td>₹{{ txn.days_overdue * 5 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="dashboard-empty">Nothing overdue right now. ✅</p>
+    {% endif %}
+</div>
+{% endblock %}

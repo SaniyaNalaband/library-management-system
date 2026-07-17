@@ -7,7 +7,7 @@ explained and changed independently — a common interview talking point.
 
 from datetime import datetime
 from extensions import db
-from models.files.fine import Fine
+from models.fine import Fine
 
 FINE_PER_DAY = 5.0
 

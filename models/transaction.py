@@ -37,6 +37,13 @@ class Transaction(db.Model):
             return self.return_date > self.due_date
         return datetime.utcnow() > self.due_date
 
+    @property
+    def days_overdue(self):
+        reference = self.return_date or datetime.utcnow()
+        if reference <= self.due_date:
+            return 0
+        return (reference - self.due_date).days
+
     def __repr__(self):
         status = 'Returned' if self.is_returned else 'Borrowed'
         return f'<Transaction user={self.user_id} book={self.book_id} [{status}]>'

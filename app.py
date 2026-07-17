@@ -9,13 +9,14 @@ from extensions import db, login_manager
 
 # Import models so SQLAlchemy knows about them before create_all() runs
 from models.user import User
-from models.files.book import Book
+from models.book import Book
 from models.transaction import Transaction
-from models.files.fine import Fine
+from models.fine import Fine
 
 from routes.auth import auth_bp
 from routes.books import books_bp
 from routes.transactions import transactions_bp
+from routes.admin import admin_bp
 
 
 def create_app():
@@ -30,6 +31,7 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(books_bp)
     app.register_blueprint(transactions_bp)
+    app.register_blueprint(admin_bp)
 
     with app.app_context():
         db.create_all()  # Creates tables if they don't already exist

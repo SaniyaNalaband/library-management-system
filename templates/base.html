@@ -16,6 +16,10 @@
         <nav>
             {% if current_user.is_authenticated %}
                 <a href="{{ url_for('books.list_books') }}">Books</a>
+                {% if current_user.role == 'admin' %}
+                    <a href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+                    <a href="{{ url_for('admin.manage_books') }}">Admin</a>
+                {% endif %}
                 <a href="{{ url_for('auth.logout') }}">Logout ({{ current_user.name }})</a>
             {% else %}
                 <a href="{{ url_for('auth.login') }}">Login</a>
